@@ -17,11 +17,13 @@ enterCity(cityFromInput)
 }
 
     return(
-   
+   <div className="container">
+    
         <form onSubmit={HandleSubmit} action="/">
            <input type="text" ref={city}  />
            <button type="submit">Enter</button>
         </form>
+        </div>
     )
 }
 
