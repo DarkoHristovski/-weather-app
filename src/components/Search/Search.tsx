@@ -1,25 +1,24 @@
+import './search.css'
+
 import { type FormEvent, useRef } from "react";
 
 
-export type cityNameProps ={
+export type SearchProps ={
    enterCity:(city:string)=>void
 }
 
-const Search = ({enterCity}:cityNameProps ) =>{
-
+const Search = ({enterCity}:SearchProps ) =>{
 const city = useRef<HTMLInputElement>(null)
-
 function HandleSubmit(event:FormEvent){
 event.preventDefault();
 const cityFromInput = city.current!.value;
-console.log(cityFromInput)
 enterCity(cityFromInput)
+
 }
 
     return(
-   <div className="container">
-    
-        <form onSubmit={HandleSubmit} action="/">
+    <div className="seacrh-module module">
+        <form className='flex space-between' onSubmit={HandleSubmit} action="/">
            <input type="text" ref={city}  />
            <button type="submit">Enter</button>
         </form>

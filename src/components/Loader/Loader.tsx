@@ -1,35 +1,18 @@
-import Search from "../Search/Search";
-import "./header.css";
-import { useEffect } from "react";
+import './loader.css'
 
-export type HeaderProps = {
-  enterCity: (city: string) => void;
-};
+const Loader = () =>{
 
-const handleSwitchTemperature = (event:Event | null) =>{
-
-
-localStorage.setItem('isCelsius', event?.target?.checked)
-
-}
-
-const Header = ({ enterCity }: HeaderProps) => {
-
-
-
-  return (
-    <header className="module">
-      <div className="container flex space-between">
-        <div className="logo">
-          <a href="" className="flex">
+    return(
+        <div className="loader-module">
             <svg
-              fill="#ffffff"
+            className='rotating'
+              fill="#000000"
               version="1.1"
               id="Ebene_1"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
-              width="50px"
-              height="50px"
+              width="200px"
+              height="200px"
               viewBox="0 0 64 64"
               enableBackground="new 0 0 64 64"
               xmlSpace="preserve"
@@ -61,24 +44,10 @@ const Header = ({ enterCity }: HeaderProps) => {
                 />
               </g>
             </svg>
-            <p>Darko's Wather App</p>
-          </a>
         </div>
-        <Search enterCity={enterCity} />
-        <>
-  <label className="switch">
-    <input type="checkbox" onChange={handleSwitchTemperature} defaultChecked={Boolean(localStorage.getItem('isCelsius'))}/>
-    <span className="slider round" />
-  </label>
-</>
+    )
 
-        <a className="github-link" href="/">
-          <img src="/" alt="" />
-          github image
-        </a>
-      </div>
-    </header>
-  );
-};
 
-export default Header;
+}
+
+export default Loader
